@@ -19,6 +19,11 @@ function scripts() {
         .pipe(dest('./frontend/dist/scripts'))
 }
 
+function assets() {
+    return src('./frontend/src/assets/**/*')
+        .pipe(dest('./frontend/dist/aseets/'))
+}
+
 function browsersyncServe(cb) {
     browsersync.init({ server: { baseDir: '.' }})
     cb()
@@ -31,6 +36,7 @@ function browsersyncReload(cb) {
 
 function watchTask() {
     watch('*.html', browsersyncReload)
+    watch('./frontend/src/assets/**/*', series(assets, browsersyncReload))
     watch([
         './frontend/src/styles/**/*.scss',
         './frontend/src/scripts/**/*.js'], 
@@ -40,6 +46,7 @@ function watchTask() {
 exports.default = series(
     styles, 
     scripts,
+    assets,
     browsersyncServe,
     watchTask
 )
