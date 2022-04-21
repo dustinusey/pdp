@@ -19,3 +19,18 @@
     background-position: 0 0;
   }
 }
+
+
+
+.desktop {
+  display: none;
+}
+
+@include break(medium) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: initial;
+  }
+}

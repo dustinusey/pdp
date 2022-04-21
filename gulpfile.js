@@ -21,7 +21,7 @@ function scripts() {
 
 function assets() {
     return src('./frontend/src/assets/**/*')
-        .pipe(dest('./frontend/dist/aseets/'))
+        .pipe(dest('./frontend/dist/assets/'))
 }
 
 function browsersyncServe(cb) {

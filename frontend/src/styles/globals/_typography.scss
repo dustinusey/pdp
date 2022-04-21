@@ -13,3 +13,12 @@ h6 {
 p {
   font-weight: 300;
 }
+
+
+a {
+  color: $neora-blue;
+  transition: color .3s ease;
+  &:hover {
+    color: darken($neora-blue, 5%);
+  }
+}
